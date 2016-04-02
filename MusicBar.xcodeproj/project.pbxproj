@@ -11,6 +11,8 @@
 		B1AD417C1CAFE1E7002F0E25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD417B1CAFE1E7002F0E25 /* ViewController.swift */; };
 		B1AD417E1CAFE1E7002F0E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */; };
 		B1AD41811CAFE1E7002F0E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AD417F1CAFE1E7002F0E25 /* Main.storyboard */; };
+		B1AD41891CAFE1FF002F0E25 /* MusicBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */; };
+		B1AD418B1CAFE209002F0E25 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD418A1CAFE209002F0E25 /* iTunes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1AD41801CAFE1E7002F0E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1AD41821CAFE1E7002F0E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicBar.swift; sourceTree = "<group>"; };
+		B1AD418A1CAFE209002F0E25 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */,
 				B1AD417F1CAFE1E7002F0E25 /* Main.storyboard */,
 				B1AD41821CAFE1E7002F0E25 /* Info.plist */,
+				B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */,
+				B1AD418A1CAFE209002F0E25 /* iTunes.swift */,
 			);
 			path = MusicBar;
 			sourceTree = "<group>";
@@ -131,8 +137,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AD41891CAFE1FF002F0E25 /* MusicBar.swift in Sources */,
 				B1AD417C1CAFE1E7002F0E25 /* ViewController.swift in Sources */,
 				B1AD417A1CAFE1E7002F0E25 /* AppDelegate.swift in Sources */,
+				B1AD418B1CAFE209002F0E25 /* iTunes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
