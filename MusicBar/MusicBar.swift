@@ -8,6 +8,7 @@
 
 import Cocoa
 import AppKit
+import Alamofire
 
 private struct Track {
     let title: String
@@ -114,6 +115,12 @@ class MusicBar: NSObject {
             let storeURL = NSURL(string: notification.userInfo?["Store URL"] as? String ?? "")
 
             track = Track(title: title, artist: artist, album: album, storeURL: storeURL)
+
+            if let storeID = track?.storeID {
+                let parameters = [ "product_id" : storeID ]
+                Alamofire.request(.POST, "http://localhost:4567/listen", parameters: parameters)
+            }
+
         } else {
             track = nil
         }

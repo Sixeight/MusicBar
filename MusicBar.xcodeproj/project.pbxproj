@@ -13,7 +13,23 @@
 		B1AD41811CAFE1E7002F0E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AD417F1CAFE1E7002F0E25 /* Main.storyboard */; };
 		B1AD41891CAFE1FF002F0E25 /* MusicBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */; };
 		B1AD418B1CAFE209002F0E25 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD418A1CAFE209002F0E25 /* iTunes.swift */; };
+		B1AD418D1CB18B9F002F0E25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD418C1CB18B9F002F0E25 /* Alamofire.framework */; };
+		B1AD418E1CB18B9F002F0E25 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD418C1CB18B9F002F0E25 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1AD418F1CB18B9F002F0E25 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1AD418E1CB18B9F002F0E25 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B1AD41761CAFE1E7002F0E25 /* MusicBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,7 @@
 		B1AD41821CAFE1E7002F0E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicBar.swift; sourceTree = "<group>"; };
 		B1AD418A1CAFE209002F0E25 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
+		B1AD418C1CB18B9F002F0E25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AD418D1CB18B9F002F0E25 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +58,7 @@
 		B1AD416D1CAFE1E7002F0E25 = {
 			isa = PBXGroup;
 			children = (
+				B1AD418C1CB18B9F002F0E25 /* Alamofire.framework */,
 				B1AD41781CAFE1E7002F0E25 /* MusicBar */,
 				B1AD41771CAFE1E7002F0E25 /* Products */,
 			);
@@ -77,6 +96,7 @@
 				B1AD41721CAFE1E7002F0E25 /* Sources */,
 				B1AD41731CAFE1E7002F0E25 /* Frameworks */,
 				B1AD41741CAFE1E7002F0E25 /* Resources */,
+				B1AD418F1CB18B9F002F0E25 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +265,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = MusicBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.hacobun.MusicBar;
@@ -257,6 +281,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = MusicBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.hacobun.MusicBar;
