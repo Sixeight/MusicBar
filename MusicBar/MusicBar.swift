@@ -55,6 +55,9 @@ class MusicBar: NSObject {
         menu.autoenablesItems = true
         menu.addItem(songInfoMenuItem)
         menu.addItem(separatorMenuItem)
+        let openSiteMenuItem = menu.addItemWithTitle("サイトみる", action: #selector(openSite), keyEquivalent: "")
+        openSiteMenuItem?.target = self
+        menu.addItem(NSMenuItem.separatorItem())
         let quitMenuItem = menu.addItemWithTitle("Quit", action: #selector(quit), keyEquivalent: "q")
         quitMenuItem?.target = self
 
@@ -132,6 +135,11 @@ class MusicBar: NSObject {
             return
         }
         NSWorkspace.sharedWorkspace().openURL(storeURL)
+    }
+
+    func openSite() {
+        let siteURL = NSURL(string: "http://music.hacobun.co")!
+        NSWorkspace.sharedWorkspace().openURL(siteURL)
     }
     
     func quit() {
