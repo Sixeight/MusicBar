@@ -120,17 +120,29 @@ class MusicBar: NSObject {
         currentTracks.removeAll()
         currentTrackMenuItems.forEach { $0.hidden = true }
 
-        Alamofire.request(.GET, Endpoint.Recents.URL(), parameters: [ "limit" : currentTrackMenuItems.count ])
+        Alamofire.request(.GET, Endpoint.Recents.URL(), parameters: [ "limit" : currentTrackMenuItems.count + 1 ])
             .responseJSON { [weak self] response in
                 switch response.result {
                 case .Success(let recents):
                     if let recents = recents as? [[String : String]] {
-                        for (index, trackInfo) in recents.enumerate() {
+                        var index = 0
+                        for trackInfo in recents {
                             let track = Track(title: trackInfo["track_name"]!, artist: trackInfo["artist_name"]!, album: trackInfo["collection_name"]!, storeURL: NSURL(string: trackInfo["track_view_url"]!)!)
+
+                            if track.title == self?.track?.title {
+                                continue
+                            }
+
                             let menuItem = self?.currentTrackMenuItems[index]
                             menuItem?.title = "「\(track.title)」 by \(track.artist)"
                             menuItem?.hidden = false
                             self?.currentTracks.append(track)
+
+                            index += 1
+
+                            if index >= (self?.currentTrackMenuItems.count ?? 0) {
+                                break
+                            }
                         }
                     }
                 case .Failure(let error):
