@@ -271,6 +271,7 @@
 				);
 				INFOPLIST_FILE = MusicBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = co.hacobun.MusicBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -287,6 +288,7 @@
 				);
 				INFOPLIST_FILE = MusicBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = co.hacobun.MusicBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -311,6 +313,7 @@
 				B1AD41871CAFE1E7002F0E25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
