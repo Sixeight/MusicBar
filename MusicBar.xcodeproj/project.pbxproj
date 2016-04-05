@@ -41,6 +41,7 @@
 		B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicBar.swift; sourceTree = "<group>"; };
 		B1AD418A1CAFE209002F0E25 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		B1AD418C1CB18B9F002F0E25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		B1AD41911CB3ED4A002F0E25 /* MusicBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MusicBar.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		B1AD41781CAFE1E7002F0E25 /* MusicBar */ = {
 			isa = PBXGroup;
 			children = (
+				B1AD41911CB3ED4A002F0E25 /* MusicBar.entitlements */,
 				B1AD41791CAFE1E7002F0E25 /* AppDelegate.swift */,
 				B1AD417B1CAFE1E7002F0E25 /* ViewController.swift */,
 				B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */,
@@ -119,6 +121,12 @@
 				TargetAttributes = {
 					B1AD41751CAFE1E7002F0E25 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = EU793HE4YT;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -264,6 +272,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MusicBar/MusicBar.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -281,6 +291,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MusicBar/MusicBar.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
