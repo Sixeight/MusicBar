@@ -71,9 +71,6 @@ class MusicBar: NSObject {
         songInfoMenuItem.hidden  = true
         separatorMenuItem.hidden = true
 
-        songInfoMenuItem.target = self
-        songInfoMenuItem.action = #selector(openCurrentTrackStore)
-
         let menu = NSMenu()
         menu.autoenablesItems = true
         menu.addItem(songInfoMenuItem)
@@ -134,7 +131,7 @@ class MusicBar: NSObject {
                             }
 
                             let menuItem = self?.currentTrackMenuItems[index]
-                            menuItem?.title = "「\(track.title)」 by \(track.artist)"
+                            menuItem?.title = "「\(track.title)」 \(track.artist)"
                             menuItem?.hidden = false
                             self?.currentTracks.append(track)
 
@@ -201,13 +198,6 @@ class MusicBar: NSObject {
         updateRecents()
     }
 
-    func openCurrentTrackStore() {
-        guard let storeURL = track?.storeURL else {
-            return
-        }
-        NSWorkspace.sharedWorkspace().openURL(storeURL)
-    }
-
     func openSite() {
         let siteURL = NSURL(string: "http://music.hacobun.co")!
         NSWorkspace.sharedWorkspace().openURL(siteURL)
@@ -263,7 +253,11 @@ class MusicBar: NSObject {
         guard let storeURL = track.storeURL else {
             return
         }
-        NSWorkspace.sharedWorkspace().openURL(storeURL)
+        let components = NSURLComponents(string: storeURL.absoluteString)
+        components?.scheme = "itmss"
+        if let URL = components?.URL {
+            NSWorkspace.sharedWorkspace().openURL(URL)
+        }
     }
 }
 
