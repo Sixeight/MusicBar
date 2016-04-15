@@ -36,6 +36,8 @@ class MusicBar: NSObject {
 
     private static let HOST = NSURL(string: "http://localhost:4567/")!
 
+    private static let SITE_URL = NSURL(string: "http://localhost:4567")!
+
     enum Endpoint {
         case Listen
         case Recents
@@ -53,7 +55,8 @@ class MusicBar: NSObject {
     private var track: Track?
 
     private let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-    private let songInfoMenuItem  = NSMenuItem()
+    private let songInfoMenuItem = NSMenuItem()
+    private let authMenuItem = NSMenuItem()
 
     private let playingImage = NSImage(named: "playing")!
     private let pauseImage   = NSImage(named: "pause")!
@@ -67,11 +70,19 @@ class MusicBar: NSObject {
         menu.autoenablesItems = true
         menu.addItem(songInfoMenuItem)
         menu.addItem(NSMenuItem.separatorItem())
-        let openSiteMenuItem = menu.addItemWithTitle("サイトをみる", action: #selector(openSite), keyEquivalent: "")
 
+        let openSiteMenuItem = menu.addItemWithTitle("サイトをみる", action: #selector(openSite), keyEquivalent: "")
+        openSiteMenuItem?.target = self
         menu.addItem(NSMenuItem.separatorItem())
 
-        openSiteMenuItem?.target = self
+        let token = NSUserDefaults.standardUserDefaults().stringForKey("token")
+
+        authMenuItem.title = (token == nil) ? "ログイン" : "ログアウト"
+        authMenuItem.action = #selector(loginOrLogout)
+        authMenuItem.target = self
+        menu.addItem(authMenuItem)
+        menu.addItem(NSMenuItem.separatorItem())
+
         menu.addItem(NSMenuItem.separatorItem())
         let quitMenuItem = menu.addItemWithTitle("Quit", action: #selector(quit), keyEquivalent: "q")
         quitMenuItem?.target = self
@@ -133,7 +144,9 @@ class MusicBar: NSObject {
             track = Track(title: title, artist: artist, album: album, storeURL: storeURL)
 
             if let storeID = track?.storeID {
-                let parameters = [ "product_id" : storeID ]
+                // token は空文字列で送っても問題ない
+                let token = NSUserDefaults.standardUserDefaults().stringForKey("token") ?? ""
+                let parameters = [ "product_id" : storeID, "token" : token ]
                 Alamofire.request(.POST, Endpoint.Listen.URL(), parameters: parameters)
             }
         } else {
@@ -143,10 +156,29 @@ class MusicBar: NSObject {
     }
 
     func openSite() {
-        let siteURL = NSURL(string: "http://music.hacobun.co")!
-        NSWorkspace.sharedWorkspace().openURL(siteURL)
+        NSWorkspace.sharedWorkspace().openURL(MusicBar.SITE_URL)
     }
-    
+
+    func loginOrLogout() {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        if let _ = userDefault.stringForKey("token") {
+            userDefault.removeObjectForKey("token")
+            updateAuthMenuItem()
+        } else {
+            let URLComponents = NSURLComponents(URL: MusicBar.SITE_URL, resolvingAgainstBaseURL: false)!
+            URLComponents.path = "/login"
+            NSWorkspace.sharedWorkspace().openURL(URLComponents.URL!)
+        }
+    }
+
+    func updateAuthMenuItem() {
+        if let _ = NSUserDefaults.standardUserDefaults().stringForKey("token") {
+            authMenuItem.title = "ログアウト"
+        } else {
+            authMenuItem.title = "ログイン"
+        }
+    }
+
     func quit() {
         NSApplication.sharedApplication().terminate(self)
     }
