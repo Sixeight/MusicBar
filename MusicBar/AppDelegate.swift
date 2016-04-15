@@ -21,6 +21,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    func applicationWillFinishLaunching(notification: NSNotification) {
+        let eventManager = NSAppleEventManager.sharedAppleEventManager()
+        eventManager.setEventHandler(self, andSelector: #selector(handleGetURLEvent), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
+    }
 
+    // トークンを保存する
+    func handleGetURLEvent(event: NSAppleEventDescriptor?, replyEvent: NSAppleEventDescriptor?) {
+        guard let event = event else {
+            return
+        }
+        guard let URL = event.descriptorForKeyword(AEKeyword(keyDirectObject))?.stringValue else {
+            return
+        }
+        guard let components = NSURLComponents(string: URL) else {
+            return
+        }
+        guard let token = components.queryItems?.filter({ $0.name == "token" }).first?.value else {
+            return
+        }
+        NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
+        musicBar.updateAuthMenuItem()
+    }
 }
 
