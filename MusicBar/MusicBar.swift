@@ -189,6 +189,7 @@ class MusicBar: NSObject {
         }
         let components = NSURLComponents(string: storeURL.absoluteString)
         components?.scheme = "itmss"
+        components?.queryItems?.append(NSURLQueryItem(name: "app", value: "itunes"))
         if let URL = components?.URL {
             NSWorkspace.sharedWorkspace().openURL(URL)
         }
