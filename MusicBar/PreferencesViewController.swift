@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class PreferencesViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

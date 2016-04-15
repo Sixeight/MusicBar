@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B1AD417A1CAFE1E7002F0E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD41791CAFE1E7002F0E25 /* AppDelegate.swift */; };
-		B1AD417C1CAFE1E7002F0E25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD417B1CAFE1E7002F0E25 /* ViewController.swift */; };
+		B1AD417C1CAFE1E7002F0E25 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD417B1CAFE1E7002F0E25 /* PreferencesViewController.swift */; };
 		B1AD417E1CAFE1E7002F0E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */; };
 		B1AD41811CAFE1E7002F0E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AD417F1CAFE1E7002F0E25 /* Main.storyboard */; };
 		B1AD41891CAFE1FF002F0E25 /* MusicBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD41881CAFE1FF002F0E25 /* MusicBar.swift */; };
@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		B1AD41761CAFE1E7002F0E25 /* MusicBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AD41791CAFE1E7002F0E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1AD417B1CAFE1E7002F0E25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1AD417B1CAFE1E7002F0E25 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1AD41801CAFE1E7002F0E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1AD41821CAFE1E7002F0E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			children = (
 				B1AD41911CB3ED4A002F0E25 /* MusicBar.entitlements */,
 				B1AD41791CAFE1E7002F0E25 /* AppDelegate.swift */,
-				B1AD417B1CAFE1E7002F0E25 /* ViewController.swift */,
+				B1AD417B1CAFE1E7002F0E25 /* PreferencesViewController.swift */,
 				B1AD417D1CAFE1E7002F0E25 /* Assets.xcassets */,
 				B1AD417F1CAFE1E7002F0E25 /* Main.storyboard */,
 				B1AD41821CAFE1E7002F0E25 /* Info.plist */,
@@ -166,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1AD41891CAFE1FF002F0E25 /* MusicBar.swift in Sources */,
-				B1AD417C1CAFE1E7002F0E25 /* ViewController.swift in Sources */,
+				B1AD417C1CAFE1E7002F0E25 /* PreferencesViewController.swift in Sources */,
 				B1AD417A1CAFE1E7002F0E25 /* AppDelegate.swift in Sources */,
 				B1AD418B1CAFE209002F0E25 /* iTunes.swift in Sources */,
 			);
