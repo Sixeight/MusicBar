@@ -54,7 +54,6 @@ class MusicBar: NSObject {
 
     private let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     private let songInfoMenuItem  = NSMenuItem()
-    private let separatorMenuItem = NSMenuItem.separatorItem()
 
     private let playingImage = NSImage(named: "playing")!
     private let pauseImage   = NSImage(named: "pause")!
@@ -62,13 +61,12 @@ class MusicBar: NSObject {
     override init() {
         super.init()
 
-        songInfoMenuItem.hidden  = true
-        separatorMenuItem.hidden = true
+        songInfoMenuItem.hidden = true
 
         let menu = NSMenu()
         menu.autoenablesItems = true
         menu.addItem(songInfoMenuItem)
-        menu.addItem(separatorMenuItem)
+        menu.addItem(NSMenuItem.separatorItem())
         let openSiteMenuItem = menu.addItemWithTitle("サイトをみる", action: #selector(openSite), keyEquivalent: "")
 
         menu.addItem(NSMenuItem.separatorItem())
@@ -108,8 +106,7 @@ class MusicBar: NSObject {
         guard let track = track else {
             statusItem.title = nil
             statusItem.image = pauseImage
-            songInfoMenuItem.hidden  = true
-            separatorMenuItem.hidden = true
+            songInfoMenuItem.hidden = true
             return
         }
 
@@ -118,8 +115,7 @@ class MusicBar: NSObject {
         ])
         songInfoMenuItem.attributedTitle = attributedArtistAlbum
 
-        songInfoMenuItem.hidden  = false
-        separatorMenuItem.hidden = false
+        songInfoMenuItem.hidden = false
 
         // XXX: Hack for item's width
         statusItem.title = " "
